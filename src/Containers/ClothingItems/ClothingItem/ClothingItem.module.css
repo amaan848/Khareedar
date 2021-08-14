@@ -1,0 +1,37 @@
+.itemContainer {
+  border: 1px solid rgb(224, 217, 217);
+  box-shadow: 15px 10px 10px #444;
+  width: 30%;
+  height: 400px;
+}
+
+.itemContainer img {
+  height: 100%;
+  width: 100%;
+}
+
+.counterItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+
+.nums {
+  text-align: center;
+  color: rgb(201, 94, 23);
+}
+
+.signs,
+.signs:hover {
+  font-size: xx-large;
+  color: rgb(201, 94, 23);
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .itemContainer {
+    height: 200px;
+  }
+}

@@ -1,0 +1,25 @@
+.navbar {
+  width: 100%;
+  background-color: rgb(41, 77, 41);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navbar p {
+  color: white;
+  font-family: fantasy;
+  font-size: large;
+  margin-right: auto;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: rgb(41, 77, 41);
+}

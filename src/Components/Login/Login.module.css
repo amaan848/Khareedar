@@ -1,0 +1,38 @@
+.form {
+  margin: auto;
+  width: 30%;
+  padding: 30px;
+  border: 1px solid rgb(63, 61, 61);
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px rgb(122, 120, 120);
+  position: absolute;
+  height: min-content;
+  top: 40%;
+  bottom: 40%;
+  left: 35%;
+  right: 35%;
+  box-sizing: border-box;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.form input {
+  margin-bottom: 10px;
+}
+
+.form button {
+  display: inline;
+  margin: 10px;
+  background-color: rgb(41, 77, 41);
+  color: white;
+  border-radius: 5px;
+}
+
+.form p {
+  color: red;
+  font-size: small;
+}
