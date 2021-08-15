@@ -36,3 +36,13 @@
   color: red;
   font-size: small;
 }
+
+@media (max-width: 600px) {
+  .form {
+    width: 60%;
+    left: 20%;
+    right: 20%;
+    top: 40%;
+    bottom: 40%;
+  }
+}
