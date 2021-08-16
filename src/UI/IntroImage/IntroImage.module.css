@@ -2,3 +2,9 @@
   height: inherit;
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  .image {
+    min-width: 320px;
+  }
+}

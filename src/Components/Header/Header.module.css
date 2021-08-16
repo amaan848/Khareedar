@@ -23,3 +23,9 @@ a:visited {
   text-decoration: none;
   color: rgb(41, 77, 41);
 }
+
+@media (max-width: 600px) {
+  .navbar {
+    min-width: 320px;
+  }
+}

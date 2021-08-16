@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ClothingItem from './ClothingItem/ClothingItem';
+import Checkout from '../Checkout/Checkout';
 import classes from './ClothingItems.module.css';
+
 
 
 class ClothingItems extends Component {
@@ -65,11 +67,14 @@ class ClothingItems extends Component {
 
         const continueCheckout = ()=>{
             this.setState({checkoutContinued : true})
-            console.log(this.state.checkoutContinued)
-        }
-        let containerClass = ['allItems'].concat(this.state.checkoutContinued ? 'overlay' : null).join(' ');
+        }       
+        
         return (
-            <div className={classes.allItems}>
+           <div>
+               {
+               this.state.checkoutContinued ? 
+               <Checkout itemsPicked={this.state.itemsPicked} totalPrice={this.state.totalPrice}/>:
+               <div>
                 {items}
                 <div className={classes.priceBar}>BAG PRICE : {this.state.totalPrice}$</div>
                 <div className={classes.checkout}>
@@ -81,6 +86,8 @@ class ClothingItems extends Component {
                             CHECKOUT
                     </button>
                 </div>
+               </div> 
+            }   
             </div>
         );
     }
