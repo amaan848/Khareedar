@@ -28,6 +28,9 @@ class ClothingItems extends Component {
             'jeans': 11.3
         };
 
+
+       
+
     render() {
         const  setQuantity = (item) => (quantity) => {
             const newState = {
@@ -36,8 +39,8 @@ class ClothingItems extends Component {
                     [item]: quantity
                 },
                 totalPrice: quantity > this.state.itemsPicked[item] ? 
-                            this.state.totalPrice + (this.PRICE_CHART[item]) : 
-                            this.state.totalPrice - (this.PRICE_CHART[item])
+                            (Number.parseFloat(this.state.totalPrice) + Number.parseFloat(this.PRICE_CHART[item])).toFixed(2) : 
+                            (Number.parseFloat(this.state.totalPrice) - Number.parseFloat(this.PRICE_CHART[item])).toFixed(2)  
             }
             this.setState(newState)
         }
@@ -50,7 +53,6 @@ class ClothingItems extends Component {
                 setQuantity={setQuantity(item)}
             />
         ))
-
         let orderDisabled = true;
         itemsPicked.map((item) => {
             if(this.state.itemsPicked[item] === 0 && orderDisabled){
@@ -59,7 +61,7 @@ class ClothingItems extends Component {
             else{
                 orderDisabled = false;
             }
-        })
+    })
 
         const cancelCheckout = ()=>{
             window.history.go()
@@ -74,9 +76,9 @@ class ClothingItems extends Component {
                {
                this.state.checkoutContinued ? 
                <Checkout itemsPicked={this.state.itemsPicked} totalPrice={this.state.totalPrice}/>:
-               <div>
+               <div className={classes.cont}>
                 {items}
-                <div className={classes.priceBar}>BAG PRICE : {this.state.totalPrice}$</div>
+                <div className={classes.priceBar}>BAG PRICE : {Number.parseFloat(Math.abs(this.state.totalPrice)).toFixed(2)}$</div>
                 <div className={classes.checkout}>
                     <button className={classes.cancelButton} onClick={cancelCheckout}>CANCEL</button>
                     <button 

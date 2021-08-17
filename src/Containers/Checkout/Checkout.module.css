@@ -42,6 +42,11 @@ button {
 .continueButton {
   background-color: rgb(5, 238, 5);
 }
+
+thead,
+tfoot {
+  font-weight: bold;
+}
 @media (max-width: 600px) {
   .summary {
     width: 80%;

@@ -4,6 +4,8 @@ import axios from 'axios';
 import Khareedar from "./Containers/Khareedar/Khareedar";
 import Header from './Components/Header/Header';
 import { Redirect , Route , BrowserRouter} from "react-router-dom";
+import Spinner from "./UI/Spinner/Spinner";
+import Orders from "./Containers/Orders/Orders";
 
 import './App.css';
 
@@ -17,8 +19,10 @@ class App extends Component {
     },
     token: '',
     userId: '',
-    error: ''
+    error: '',
+    loading: false
   };
+
 
   onEmailChange = (event) => {
     this.setState({...this.state,
@@ -39,9 +43,11 @@ class App extends Component {
   }
 
   onSubmitHandlerSignup = ()=>{
+    this.setState({loading : true})
     let formData = this.state.authData;
     axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA2BrtzHBmTHiKz43VyjqkB4wTlblqRJRY' , formData)
           .then((response) => {
+            this.setState({loading : false})
             window.localStorage.setItem('token' , response.data.idToken)
             window.localStorage.setItem('userId' , response.data.localId)
             window.localStorage.setItem('isAuth' , true)
@@ -54,9 +60,11 @@ class App extends Component {
   }
 
   onSubmitHandlerSignin = () => {
+    this.setState({loading : true})
     let formData = this.state.authData;
     axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA2BrtzHBmTHiKz43VyjqkB4wTlblqRJRY',formData)
     .then((response) => {
+      this.setState({loading : false})
         window.localStorage.setItem('token' , response.data.idToken)
         window.localStorage.setItem('userId' , response.data.localId)
         window.localStorage.setItem('isAuth' , true)
@@ -88,7 +96,14 @@ class App extends Component {
         <Route path="/khareedar">
             <Khareedar/>
         </Route>
-        {loadedPage}
+        <Route path="/orders" exact>
+          <Orders/>
+        </Route>
+        {
+          this.state.loading ?
+          <Spinner/>:
+            loadedPage
+        }
       </div>
     </BrowserRouter>
 

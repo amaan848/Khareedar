@@ -1,0 +1,15 @@
+.button {
+  margin-left: 45%;
+  width: 10%;
+  align-self: center;
+  background-color: rgb(209, 203, 203);
+  color: rgb(5, 85, 5);
+}
+
+@media (max-width: 1000px) {
+  .button {
+    width: 30%;
+    margin-left: 35%;
+    min-width: 100px;
+  }
+}

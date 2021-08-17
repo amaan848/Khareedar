@@ -44,5 +44,6 @@
   }
   .nums {
     width: 30%;
+    min-width: 90px;
   }
 }

@@ -7,7 +7,7 @@ class Khareedar extends Component {
     render() {
         return (
             <div>
-               <IntroImage/>
+                <IntroImage/>
                <ClothingItems/>
             </div>
         )
